@@ -22,7 +22,6 @@ call plug#end()
 
 
 "----[ general settings ]---------------------
-
 set number				" show number
 set title 				" let vim set the terminal title
 set updatetime=100              	" redraw the status bar often
@@ -71,8 +70,11 @@ noremap u k
 "re map down cursor
 noremap j j
 
-"re mao left cursor
+"re map left cursor
 noremap h h
+
+"re map copy all
+nnoremap <leader>cpall :%y+<cr>
 
 
 "----[ colors settings ]---------------------
