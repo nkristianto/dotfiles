@@ -6,10 +6,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Colorschemes
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'altercation/vim-colors-solarized'
-Plug 'ayu-theme/ayu-vim'
-Plug 'kaicataldo/material.vim'
+"Plug 'NLKNguyen/papercolor-theme'
+"Plug 'altercation/vim-colors-solarized'
+"Plug 'ayu-theme/ayu-vim'
+"Plug 'kaicataldo/material.vim'
 Plug 'rakr/vim-one'
 
 " Other
@@ -33,11 +33,12 @@ set cursorline                    	" highlight the current line for the cursor
 set encoding=utf-8
 set expandtab                     	" expands tabs to spaces
 set list                                " show trailing whitespace
-set listchars=tab:\|\ ,trail:‚ñ´
+set listchars=tab:\|\ ,trail:.
 set autoindent                          " take indent for new line from previous line
 set smartindent                         " enable smart indentation
-set autoread                            " reload file if the file changes on the disk
 set nobackup noswapfile nowritebackup
+set noexpandtab
+set completeopt-=preview
 
 " Set the leader button, by default mapped to '\'
 let mapleader = ','
@@ -70,6 +71,7 @@ nnoremap <silent> gt :call LanguageClient#textDocument_formatting_sync()<CR>
 
 "----[ Airline Theme ]-----------------------
 "let g:airline_theme='deus theme'
+let g:airline_theme='one'
 
 "----[ colors settings ]---------------------
 "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
@@ -82,28 +84,30 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-set background=dark
 
 " Material colorscheme settings
-let g:material_theme_style = 'dark'
+"let g:material_theme_style = 'dark'
 
 " Ayu colorscheme settings
-let ayucolor = 'dark'
+"let ayucolor = 'dark'
 
 " One colorscheme settings
 let g:one_allow_italics = 1
 
 colorscheme one
 
+set background=dark
+
+
 " Override the search highlight color with a combination that is easier to
 " read. The default PaperColor is dark green backgroun with black foreground.
 "
 " Reference:
-" - http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
-highlight Search guibg=DeepPink4 guifg=White ctermbg=53 ctermfg=White
+" - http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim Xterm256_color_names_for_console_Vim
+"highlight Search guibg=DeepPink4 guifg=White ctermbg=53 ctermfg=White
 
 " Toggle background with <leader>bg
-map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
+"map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
 
 
 "----[ shougo/deoplete.nvim settings ]---------------------
@@ -117,6 +121,10 @@ let delimitMate_expand_cr = 1
 
 
 "----[ golang settings ]---------------------
+
+"format tab
+autocmd FileType go set noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+
 autocmd BufNewFile,BufRead *.go.tpl,*.qtpl setlocal syntax=go
 
 
