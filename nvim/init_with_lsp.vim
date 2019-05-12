@@ -2,14 +2,11 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 
 " UI
+Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Colorschemes
-"Plug 'NLKNguyen/papercolor-theme'
-"Plug 'altercation/vim-colors-solarized'
-"Plug 'ayu-theme/ayu-vim'
-"Plug 'kaicataldo/material.vim'
 Plug 'rakr/vim-one'
 
 " Other
