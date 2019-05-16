@@ -74,6 +74,7 @@ alias vim="nvim"
 alias vi="nvim"
 alias ev="vim ~/.config/nvim/init.vim"
 alias et="vim ~/.tmux.conf"
-alias workdir="/Users/noviankristianto/workspace/golang/github.com/nkristianto"
+alias workdir="~/workspace/golang/github.com/nkristianto"
+alias dotfile="~/workspace/dotfiles"
 # g-go version manager
 export GOPATH="$HOME/go"; export GOROOT="/usr/local/opt/go/libexec"; PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
