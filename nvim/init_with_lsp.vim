@@ -1,4 +1,10 @@
-call plug#begin('~/.local/share/nvim/plugged')
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.nvim/plugged')
 
 
 " UI
@@ -9,11 +15,12 @@ Plug 'vim-airline/vim-airline-themes'
 " Colorschemes
 Plug 'rakr/vim-one'
 
-" Other
+" Code Completion
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'Raimondi/delimitMate'                     " auto-completion for quotes, parens, brackets, etc
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
+Plug 'ervandew/supertab'
+Plug 'SirVer/ultisnips'
 
 "Language Support
 Plug 'zchee/deoplete-go', { 'for': 'go', 'do': 'make' }
@@ -95,17 +102,8 @@ colorscheme one
 
 set background=dark
 
-
-" Override the search highlight color with a combination that is easier to
-" read. The default PaperColor is dark green backgroun with black foreground.
-"
-" Reference:
-" - http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim Xterm256_color_names_for_console_Vim
-"highlight Search guibg=DeepPink4 guifg=White ctermbg=53 ctermfg=White
-
-" Toggle background with <leader>bg
-"map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
-
+"-----[ Supertab settings ]-----------------------------
+let g:SuperTabDefaultCompletionType = '<c-n>'
 
 "----[ shougo/deoplete.nvim settings ]---------------------
 
