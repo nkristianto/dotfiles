@@ -1,0 +1,48 @@
+# Snippets for Go
+priority -50
+
+# when to abbriviate and when not?
+# b doesn't work here, because it ignores whitespace
+# optional local name?
+snippet /^import/ "Import declaration" r
+import (
+	"${1:package}"
+)
+endsnippet
+
+snippet /^package/ "Package declaration" r
+// Package $1 provides ...
+package ${1:main}
+endsnippet
+
+snippet struct "Struct declaration" b
+type ${1:Struct} struct {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet interface "Interface declaration" b
+type ${1:Interface} interface {
+	${0:${VISUAL}}
+}
+endsnippet
+
+# functions
+snippet /^main/ "Main function" r
+func main() {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet json "JSON field"
+\`json:"${1:displayName}"\`
+endsnippet
+
+# vim:ft=snippets:
+
+# error handling
+snippet err "Basic error handling" b
+if err != nil {
+	log.${1:Fatal}(err)
+}
+endsnippet
