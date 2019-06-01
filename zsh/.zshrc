@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export PATH="/Users/novian/go/bin:$PATH
 
-export TERM="xterm-256color"
+# export TERM="xterm-256color"
 export GOROOT="/usr/local/opt/go/libexec"
 export GOPATH=$HOME/go
 export GPC=$HOME/workspace/google-cloud-sdk
