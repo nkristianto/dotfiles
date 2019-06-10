@@ -17,7 +17,7 @@
 	template = /Users/noviankristianto/.stCommitMsg
 
 [push]
-	default = simple
+	default = current
 
 [pull]
 	rebase = true
@@ -35,5 +35,6 @@
 	ls = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 	dt = diff-tree --no-commit-id --name-only -r
 
-[includeIf "gitdir:~/go/src/bitbucket.org/kudoindonesia/"]
+[includeIf "gitdir:~/workspace/brank.as/"]
   	path = .gitconfig-work
+
