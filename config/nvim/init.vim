@@ -25,6 +25,7 @@ Plug 'SirVer/ultisnips'
 "Language Support
 Plug 'zchee/deoplete-go', { 'for': 'go', 'do': 'make' }
 Plug 'vim-jp/vim-go-extra', { 'for': 'go' }
+Plug 'exu/pgsql.vim', { 'for': 'sql' }
 call plug#end()
 
 
@@ -54,14 +55,18 @@ syntax enable
 nnoremap ; :
 
 " disable arrow keys
-vnoremap <Up> <Nop>
-vnoremap <Down> <Nop>
-vnoremap <Left> <Nop>
-vnoremap <Right> <Nop>
 nnoremap <Up> <Nop>
 nnoremap <Down> <Nop>
 nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
+vnoremap <Up> <Nop>
+vnoremap <Down> <Nop>
+vnoremap <Left> <Nop>
+vnoremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
 
 "re map copy all
 nnoremap <leader>cpall :%y+<cr>
@@ -72,6 +77,9 @@ nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
 nnoremap <silent> gt :call LanguageClient#textDocument_formatting_sync()<CR>
 
+
+"----[ posgeresQL ]-----------------------
+let g:sql_type_default = 'pgsql'
 
 "----[ Airline Theme ]-----------------------
 "let g:airline_theme='deus theme'
@@ -84,22 +92,15 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
 "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
 " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+
 if (has("termguicolors"))
   set termguicolors
 endif
-
-
-" Material colorscheme settings
-"let g:material_theme_style = 'dark'
-
-" Ayu colorscheme settings
-"let ayucolor = 'dark'
 
 " One colorscheme settings
 let g:one_allow_italics = 1
 
 colorscheme one
-
 set background=dark
 
 "-----[ Supertab settings ]-----------------------------
@@ -114,6 +115,8 @@ let g:deoplete#enable_at_startup = 1
 "-----[ Delimate settings ]-----------------------------
 let delimitMate_expand_cr = 1
 
+"-----[ override file setting ]-----------------------------
+autocmd FileType html,xml,ruby,sh,javascript,jsx,json,yaml,sql,vim,cmake,proto,typescript,ps1,gitconfig setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 
 "----[ golang settings ]---------------------
 
@@ -131,3 +134,4 @@ autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
 
 let g:gofmt_command = "goimports"
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
