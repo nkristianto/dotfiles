@@ -25,6 +25,7 @@ Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
 Plug 'zchee/deoplete-go', { 'for': 'go', 'do': 'make' }
 Plug 'vim-jp/vim-go-extra', { 'for': 'go' }
 Plug 'exu/pgsql.vim', { 'for': 'sql' }
+Plug 'vim-scripts/bash-support.vim'
 call plug#end()
 
 "----[ general settings ]---------------------
@@ -71,7 +72,8 @@ inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
-"re map copy all
+"re map copy to clipboard
+nnoremap <leader>cp :"*y
 nnoremap <leader>cpall :%y+<cr>
 
 let g:go_def_mode='gopls'
@@ -114,9 +116,9 @@ let delimitMate_expand_cr = 1
 "-----[ override file setting ]-----------------------------
 autocmd FileType html,xml,ruby,sh,javascript,jsx,json,yaml,sql,vim,cmake,proto,typescript,ps1,gitconfig setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 
-"----[ golang settings ]---------------------
-
 "format tab
 autocmd FileType go set noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 autocmd BufNewFile,BufRead .go.tpl,.qtpl,*.gunk setlocal syntax=go
 autocmd FileType go,gunk autocmd BufWritePre <buffer> Fmt
+
+au VimLeave * call nvim_cursor_set_shape("vertical-bar")

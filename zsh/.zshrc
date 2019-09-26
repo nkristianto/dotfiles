@@ -1,7 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export PATH="/Users/novian/go/bin:$PATH
-
 #export TERM="xterm-256color"
 export GOROOT="/usr/local/opt/go/libexec"
 export GOPATH=$HOME/go
@@ -10,6 +6,8 @@ export GRPC_CLI="/Users/noviankristianto/workspace/grpc/bins/opt"
 export PATH=$GOROOT/bin:$GOPATH/bin:$GCP/bin:$GRPC_CLI:$PATH
 export LIBRARY_PATH=$LIBRARY_PATH:~/workspace/tesorflow/lib
 export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:~/workspace/tesorflow/lib
+export CHROME="/Applications/Google Chrome.app/Contents/MacOS"
+export PATH=$CHROME:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/noviankristianto/.oh-my-zsh"
@@ -18,8 +16,9 @@ export ZSH="/Users/noviankristianto/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="minimal"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -99,54 +98,31 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status rbenv)
-POWERLEVEL9K_STATUS_VERBOSE=false
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
-
-# Add a space in the first prompt
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%f"
-# Visual customisation of the second prompt line
-local user_symbol="$"
-if [[ $(print -P "%#") =~ "#" ]]; then
-    user_symbol = "#"
-fi
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/noviankristianto/workspace/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/noviankristianto/workspace/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/noviankristianto/workspace/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/noviankristianto/workspace/google-cloud-sdk/completion.zsh.inc'; fi
 
+precmd() { print "" }
+
 # Kubectl auto completion
 source <(kubectl completion zsh)
 
 #GO111MODULE
 export GO111MODULE=on 
+export GOPRIVATE='brank.as/*'
 
 # aliasing
-alias ez="vi ~/.zshrc"
-alias sz="source ~/.zshrc"
-alias dps="docker ps -a"
+alias dps="docker ps"
 alias dim="docker images"
 alias dipr="docker image prune"
 alias dcpr="docker container prune"
 alias ggo="$GOPATH/bin/g"
-alias gb="go build"
-alias gbr="go build -race"
 alias vim="nvim"
 alias vi="nvim"
+alias ez="vi ~/.zshrc"
+alias sz="source ~/.zshrc"
 alias ev="vim ~/.config/nvim/init.vim"
 alias et="vim ~/.tmux.conf"
 alias eg="vim ~/.gitconfig"
@@ -168,5 +144,6 @@ alias kc="kubectl"
 alias kcgc="kc config get-contexts"
 alias kcc="kc config current-context"
 alias kcsc="kc config use-context"
+
 # g-go version manager
 export GOPATH="$HOME/go"; export GOROOT="/usr/local/opt/go/libexec"; PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
