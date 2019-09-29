@@ -5,10 +5,6 @@
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-
 [user]
 	name = novian kristianto
 	email = kristianto.novian@gmail.com
@@ -24,6 +20,7 @@
 
 [alias]
 	s = status
+	b = branch
 	a = add
 	c = commit
 	d = diff
