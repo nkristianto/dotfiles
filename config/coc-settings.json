@@ -1,0 +1,14 @@
+{
+    "coc.preferences.formatOnSaveFiletypes": ["dart"],
+    "languageserver": {
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": [".env"],
+            "filetypes": ["go"],
+            "trace.server": "verbose",
+            "initializationOptions": {
+                "usePlaceholders": true
+            }
+        }
+    }
+}
