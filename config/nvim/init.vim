@@ -16,12 +16,9 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Code Completion
 Plug 'Raimondi/delimitMate'                     " auto-completion for quotes, parens, brackets, etc
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'ervandew/supertab'
 " Plug 'SirVer/ultisnips'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'natebosch/vim-lsc'
-"Plug 'natebosch/vim-lsc-dart'
 
 " Code Format
 Plug 'google/vim-maktaba'
@@ -31,8 +28,6 @@ Plug 'alvan/vim-closetag'     " auto close html tags
 Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 " Language Support
-" Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
-" Plug 'zchee/deoplete-go', { 'for': 'go', 'do': 'make' }
 Plug 'vim-jp/vim-go-extra', { 'for': 'go' }
 Plug 'exu/pgsql.vim', { 'for': 'sql' }
 Plug 'elmcast/elm-vim', { 'for': 'elm' }  "https://github.com/ElmCast/elm-vim
@@ -42,6 +37,8 @@ Plug 'posva/vim-vue', {'for': 'vue'}
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 call plug#end()
 
 
@@ -92,15 +89,6 @@ inoremap <Right> <Nop>
 "re map copy to clipboard
 nnoremap <leader>cpall :%y+<cr>
 
-"let g:go_def_mapping_enabled = 0
-"let g:go_def_mode='gopls'
-"let g:go_info_mode='gopls'
-"let g:go_fmt_command = "goimports"
-"let g:go_highlight_types = 1
-"let g:go_gocode_unimported_packages = 1
-"let g:go_auto_type_info = 1
-"let g:go_fmt_fail_silently = 0
-"let g:go_list_type = "quickfix"
 let g:closetag_filenames = '*.html,*.xml, *.vue'
 let g:prettier#autoformat = 0
 let g:airline#extensions#hunks#enabled=0
@@ -108,8 +96,6 @@ let g:airline#extensions#hunks#enabled=0
 
 "au FileType go nmap <Leader>r <Plug>(go-rename)
 inoremap <C-b> <C-x><C-o>
-
-" nmap <C-\> :GoImplements<cr>
 
 "----[ posgeresQL ]-----------------------
 let g:sql_type_default = 'pgsql'
@@ -135,6 +121,11 @@ hi Comment ctermfg=244
 " \ 'auto_refresh_delay': 10,
 " \})
 "
+
+"coc global extension
+let g:coc_global_extensions = [
+  \ 'coc-tsserver'
+  \ ]
 
 " Coc Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -173,6 +164,11 @@ autocmd BufNewFile,BufRead *.html setlocal filetype=html
 autocmd BufNewFile,BufRead *.js setlocal filetype=javascript
 autocmd BufNewFile,BufRead *.vue setlocal filetype=vue
 
+" forces vim to rescan the entire buffer when I enter a JavaScript or TypeScript buffer, 
+" and disable it when I leave
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
 " Code Format
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
@@ -191,3 +187,4 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
