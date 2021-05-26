@@ -3,12 +3,21 @@
     "languageserver": {
         "golang": {
             "command": "gopls",
-            "rootPatterns": [".env"],
+            "rootPatterns": ["go.mod"],
             "filetypes": ["go"],
             "trace.server": "verbose",
             "initializationOptions": {
                 "usePlaceholders": true
             }
+        },
+        "terraform": {
+            "command": "terraform-lsp",
+            "filetypes": [
+                "terraform",
+                "tf"
+            ],
+            "initializationOptions": {},
+            "settings": {}
         }
     }
 }

@@ -26,6 +26,7 @@ Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
 Plug 'alvan/vim-closetag'     " auto close html tags
 Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+Plug 'hashivim/vim-terraform' " terraform format
 
 " Language Support
 Plug 'vim-jp/vim-go-extra', { 'for': 'go' }
@@ -39,6 +40,7 @@ Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Use release branch (recommend)
 call plug#end()
 
 
@@ -93,6 +95,8 @@ let g:closetag_filenames = '*.html,*.xml, *.vue'
 let g:prettier#autoformat = 0
 let g:airline#extensions#hunks#enabled=0
 "let g:lsc_auto_map = v:true " dart lsc
+
+let g:terraform_fmt_on_save = 1 " terraform auto format on save
 
 "au FileType go nmap <Leader>r <Plug>(go-rename)
 inoremap <C-b> <C-x><C-o>
@@ -153,6 +157,7 @@ augroup END
 autocmd FileType html,vue,js,xml,ruby,sh,javascript,jsx,json,yaml,sql,vim,cmake,proto,typescript,ps1,gitconfig setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType go set noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 autocmd FileType dart set noexpandtab shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType tf set noexpandtab shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 " Syntax Type
@@ -187,4 +192,3 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
