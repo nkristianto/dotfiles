@@ -18,7 +18,8 @@ null_ls.setup({
 		formatting.stylua, -- lua formatter
 		formatting.gofumpt,
 		formatting.goimports,
-		formatting.golines,
+		-- formatting.golines,
+		formatting.terraform_fmt,
 		diagnostics.staticcheck.with({
 			diagnostics_format = "[#{c}] #{m} (#{s})",
 			fallback_severity = vim.diagnostic.severity.HINT,
@@ -31,6 +32,7 @@ null_ls.setup({
 				severity_sort = true,
 			},
 		}),
+		diagnostics.terraform_validate,
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)
