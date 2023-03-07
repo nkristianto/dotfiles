@@ -76,9 +76,9 @@ keymap.set("n", "<F10>", [[:lua require'dap'.step_out()<CR>]], {})
 -- Press F6 to open REPL
 keymap.set("n", "<F6>", [[:lua require'dap'.repl.open()<CR>]], {})
 -- Press dl to run last ran configuration (if you used f5 before it will re run it etc)
-keymap.set("n", "pt", [[:lua require'dap'.run_last()<CR>]], {})
+keymap.set("n", "<leader> pt", [[:lua require'dap'.run_last()<CR>]], {})
 -- To debug the closest method above the cursor use you can run:
-keymap.set("n", "lt", [[:lua require('dap-go').debug_test()<CR>]], {})
+keymap.set("n", "<leader> lt", [[:lua require('dap-go').debug_test()<CR>]], {})
 
 -- dapui
 keymap.set("n", "<leader>db", [[:NvimTreeToggle<CR> :lua require'dapui'.toggle()<CR>]], {})

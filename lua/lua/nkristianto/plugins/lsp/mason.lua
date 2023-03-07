@@ -35,7 +35,7 @@ mason_null_ls.setup({
 		-- golang formatter and linter
 		"gofumpt",
 		"goimports",
-		"golines",
+		--"golines",
 		"goimports-reviser",
 
 		"staticcheck", -- go staticcheck
