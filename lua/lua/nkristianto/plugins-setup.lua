@@ -45,9 +45,6 @@ return packer.startup(function(use)
 	-- maximize and restores current window
 	use("szw/vim-maximizer")
 
-	-- for edit in surrounding
-	use("tpope/vim-surround")
-
 	-- to do copy and replace
 	use("vim-scripts/ReplaceWithRegister")
 
@@ -125,11 +122,25 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- auto closing
+	-- ||||||||||||||||
+	-- ||    TEXT    ||
+	-- ||||||||||||||||
+
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
+	use("rmagatti/alternate-toggler") -- toggle alternate word i.e true <=> false
+	use("mg979/vim-visual-multi") -- multi visual block
+	use("gcmt/wildfire.vim") -- smart seletion
+	use("tpope/vim-surround") -- for edit in surrounding
+
+	-- ||||||||||||||||
+	-- ||  END-TEXT  ||
+	-- ||||||||||||||||
 
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
+
+	-- toggle terminal
+	use({ "akinsho/toggleterm.nvim", tag = "*" })
 
 	if packer_bootstrap then
 		require("packer").sync()

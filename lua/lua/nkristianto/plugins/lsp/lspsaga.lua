@@ -5,6 +5,10 @@ if not saga_status then
 end
 
 saga.setup({
+	preview = {
+		lines_above = 0,
+		lines_below = 10,
+	},
 	-- keybinds for navigation in lspsaga window
 	scroll_preview = { scroll_down = "<C-u>", scroll_up = "<C-d>" },
 	-- use enter to open file with definition preview

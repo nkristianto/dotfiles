@@ -20,7 +20,6 @@ mason_lspconfig.setup({
 	ensure_installed = {
 		"gopls",
 		"lua_ls",
-		"terraformls",
 	},
 
 	-- auto-install configured servers (with lspconfig)
@@ -31,8 +30,6 @@ mason_null_ls.setup({
 	-- list of formatters & linters for mason to install
 	ensure_installed = {
 		"stylua", -- lua formatter
-
-		-- golang formatter and linter
 		"gofumpt",
 		"goimports",
 		--"golines",
@@ -40,12 +37,7 @@ mason_null_ls.setup({
 
 		"staticcheck", -- go staticcheck
 
-		-- debugger
 		"delve", -- go debugging
-
-		-- terraform
-		"terraform-fmt",
-		"terraform-validate",
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,
