@@ -93,3 +93,5 @@ keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", { silent = true, 
 
 -- todo-comments
 keymap.set("n", "<leader>td", "<cmd>TodoTrouble<cr>", { silent = true, noremap = true })
+
+keymap.set("n", "<leader>tt", "<cmd>ToggleTerm<cr>", { silent = true, noremap = true })

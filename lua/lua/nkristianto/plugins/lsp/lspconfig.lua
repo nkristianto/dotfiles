@@ -82,3 +82,41 @@ lspconfig["gopls"].setup({
 		usePlaceholders = true,
 	},
 })
+
+lspconfig["intelephense"].setup({
+	cmd = { "intelephense", "--stdio" },
+	filetypes = { "php" },
+	root_dir = lspconfig_util.root_pattern("composer.json", ".git"),
+	on_attach = on_attach,
+	single_file_support = true,
+	flags = {
+		debounce_text_changes = 150,
+	},
+	settings = {
+		intelephense = {
+			stubs = {
+				"wordpress",
+				"phpunit",
+			},
+		},
+	},
+})
+
+lspconfig["emmet_ls"].setup({
+	cmd = { "emmet-ls", "--stdio" },
+	filetypes = {
+		"astro",
+		"css",
+		"eruby",
+		"html",
+		"htmldjango",
+		"javascriptreact",
+		"less",
+		"sass",
+		"scss",
+		"svelte",
+		"typescriptreact",
+		"vue",
+	},
+	single_file_support = true,
+})

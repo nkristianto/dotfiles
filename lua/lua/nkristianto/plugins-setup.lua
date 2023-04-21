@@ -139,9 +139,6 @@ return packer.startup(function(use)
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
-	-- toggle terminal
-	use({ "akinsho/toggleterm.nvim", tag = "*" })
-
 	if packer_bootstrap then
 		require("packer").sync()
 	end

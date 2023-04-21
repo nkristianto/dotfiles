@@ -20,6 +20,10 @@ mason_lspconfig.setup({
 	ensure_installed = {
 		"gopls",
 		"lua_ls",
+		"emmet_ls",
+		"cssls",
+		"html",
+		"intelephense",
 	},
 
 	-- auto-install configured servers (with lspconfig)

@@ -13,7 +13,7 @@ vim.opt.termguicolors = true
 nvimtree.setup({
 	sort_by = "case_sensitive",
 	actions = {
-		open_file = { quit_on_open = true },
+		open_file = { quit_on_open = false },
 	},
 	update_focused_file = {
 		enable = true,
@@ -21,9 +21,11 @@ nvimtree.setup({
 	},
 	filters = {
 		custom = { "^.git$" },
+		dotfiles = false,
 	},
 	git = {
 		enable = true,
+		ignore = false,
 	},
 	log = {
 		enable = true,

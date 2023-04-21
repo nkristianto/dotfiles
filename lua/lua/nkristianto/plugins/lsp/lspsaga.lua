@@ -12,8 +12,15 @@ saga.setup({
 	-- keybinds for navigation in lspsaga window
 	scroll_preview = { scroll_down = "<C-u>", scroll_up = "<C-d>" },
 	-- use enter to open file with definition preview
-	definition = {
-		edit = "<CR>",
+	-- definition = {
+	-- 	edit = "<CR>",
+	-- },
+	finder = {
+		keys = {
+			expand_or_jump = "<CR>",
+			vsplit = "vs",
+			split = "sp",
+		},
 	},
 	ui = {
 		colors = {
